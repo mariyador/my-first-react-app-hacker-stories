@@ -29,26 +29,26 @@ function App() {
     </div>
   );
 }
-// // Version1
-// function List() {
-//   return(
-//     <ul>
-//       {list.map(function(item) {
-//         return (
-//           <li key={item.objectID}>
-//             <span>
-//               <a href={item.url}>{item.title}</a>
-//             </span>
-//             <span>{item.author}</span>
-//             <span>{item.num_comments}</span>
-//             <span>{item.points}</span>
-//           </li>
-//         );
-//       })}  
-//     </ul>
-//   )
-// }
-// //Version2
+
+function List() {
+  return(
+    <ul>
+      {list.map(function(item) {
+        return (
+          <li key={item.objectID}>
+            <span>
+              <a href={item.url}>{item.title}</a>
+            </span>
+            <span>{item.author}</span>
+            <span>{item.num_comments}</span>
+            <span>{item.points}</span>
+          </li>
+        );
+      })}  
+    </ul>
+  )
+}
+//Version2
 // let List = function() {
 //   return(
 //     <ul>
@@ -67,31 +67,35 @@ function App() {
 //     </ul>
 //   )
 // }
-//Version3
-let List = () => {
-  return(
-    <ul>
-      {list.map(function(item) {
-        return (
-          <li key={item.objectID}>
-            <span>
-              <a href={item.url}>{item.title}</a>
-            </span>
-            <span>{item.author}</span>
-            <span>{item.num_comments}</span>
-            <span>{item.points}</span>
-          </li>
-        );
-      })}  
-    </ul>
-  )
-}
+// //Version3
+// let List = () => {
+//   return(
+//     <ul>
+//       {list.map(function(item) {
+//         return (
+//           <li key={item.objectID}>
+//             <span>
+//               <a href={item.url}>{item.title}</a>
+//             </span>
+//             <span>{item.author}</span>
+//             <span>{item.num_comments}</span>
+//             <span>{item.points}</span>
+//           </li>
+//         );
+//       })}  
+//     </ul>
+//   )
+// }
 
 function Search() {
+const handleChange = (event) => {
+  console.log(event)
+}
+
   return (
     <div>
       <label htmlFor="sarch">Search: </label>
-      <input id="search" type="text" />
+      <input id="search" type="text"  onChange={handleChange}/>
     </div>
     
   )
