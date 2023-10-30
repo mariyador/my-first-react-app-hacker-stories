@@ -117,14 +117,24 @@ const Item = ({ item }) => {
 // }
 
 function Search() {
+  const [searchTerm, setSearchTerm] = React.useState('');
+
+  console.log(`Rendering search with searchTerm ${searchTerm}`)
+
 const handleChange = (event) => {
-  console.log(event)
+  console.log(`Before entering searchTerm: ${searchTerm}`);
+  setSearchTerm(event.target.value);
+  console.log(`After entering searchTerm: ${searchTerm}`)
 }
 
   return (
     <div>
       <label htmlFor="sarch">Search: </label>
       <input id="search" type="text"  onChange={handleChange}/>
+
+      <p>
+        Searching for <strong>{searchTerm}</strong>
+      </p>
     </div>
     
   )
