@@ -41,10 +41,16 @@ function App() {
     }, 
   ];
 
+const handlerSearch = (event) => {
+  console.log(event.target.value)
+
+}
+
+
   return (
     <div>
       <h1>My Hacker Stories</h1>
-      <Search />
+      <Search onSearch={handlerSearch}/>
       <hr />
       <List list={stories} title="React Ecosystem"/>
       <List list={javascriptLibraries} title="JavaScript Libraries"/>
@@ -116,15 +122,12 @@ const Item = ({ item }) => {
 //   )
 // }
 
-function Search() {
+function Search(props) {
   const [searchTerm, setSearchTerm] = React.useState('');
 
-  console.log(`Rendering search with searchTerm ${searchTerm}`)
-
 const handleChange = (event) => {
-  console.log(`Before entering searchTerm: ${searchTerm}`);
   setSearchTerm(event.target.value);
-  console.log(`After entering searchTerm: ${searchTerm}`)
+  props.onSearch(event);
 }
 
   return (
